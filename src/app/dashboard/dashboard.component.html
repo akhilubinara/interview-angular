@@ -1,0 +1,113 @@
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <button class="btn btn-primary ms-5 mt-3" onclick="view()">View</button>
+
+        <table >
+            <thead><tr>
+                <th>ServiceTypeId</th>
+                <th>ServiceTypeName</th>
+                <th>Description</th>
+                <th>DisplayOrder</th>
+                <th>PictureId</th>
+                <th>ParentId</th>
+                <th>Active</th>
+                <th>WorkType</th>
+                <th>NoOfCustomerQuestions</th>
+                <th>IsAdminApprovalNeeded</th>
+                <th>SuggestedBidDurationInDays</th>
+                <th>IsAttachmentAllowed</th>
+                <th>CurrencyCode</th>
+                <th>Amount</th>
+                <th>Credits</th>
+            </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{data.ServiceTypeId}}</td>
+                    <td>{{data.ServiceTypeName}}</td>
+                    <td>{{data.Description}}</td>
+                    <td>{{data.DisplayOrder}}</td>
+                    <td>{{data.PictureId}}</td>
+                    <td>{{data.ParentId}}</td>
+                    <td>{{data.Active}}</td>
+                    <td>{{data.WorkType}}</td>
+                    <td>{{data.NoOfCustomerQuestions}}</td>
+                    <td>{{data.IsAdminApprovalNeeded}}</td>
+                    <td>{{data.SuggestedBidDurationInDays}}</td>
+                    <td>{{data.IsAttachmentAllowed}}</td>
+                    <td>{{data.CurrencyCode}}</td>
+                    <td>{{data.Amount}}</td>
+                    <td>{{data.Credit}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form [formGroup]="addform">
+            <div class="add"><br><br>
+                <div class="ma">
+                    <div style="text-align: center;margin: 50px 0; padding: 30px 90px;border-radius: 10px;">
+                        <div style="text-align: center; color: rgb(5, 126, 231); margin-bottom: 30px;"><h2>Add Details</h2></div>
+                
+                       <div><input type="text" placeholder="Enter Service Type Name" formControlName="servicetypename"></div>
+                       <div *ngIf="this.addform.get('servicetypename')?.errors && this.addform.get('servicetypename')?.touched" style="color: red; margin: 0 60px;">Invalid Name.</div>  
+                       <!-- <div>
+                        <select style="color: rgba(240, 248, 255, 0.836); font-size: 17px; padding-bottom: 5px;" name="Type" formControlName="tname">
+                            <option value="">Select Item Type</option>
+                            <option value="Fish">Fish</option>
+                            <option value="Plants">Plants</option>
+                            <option value="Other">Other Products</option>
+                        </select>
+                       </div> -->
+                       <!-- <div *ngIf="this.addform.get('tname')?.errors && this.addform.get('tname')?.touched" style="color: red; margin: 0 60px;">Invalid Type.</div>   -->
+                       
+                       <div><input type="text" placeholder="Enter Description" formControlName="description"></div>
+                       <div *ngIf="this.addform.get('description')?.errors && this.addform.get('description')?.touched" style="color: red;margin: 0 60px;">Invalid</div>
+                
+
+                       <div><input type="text" placeholder="Display Order" formControlName="displayorder"></div>
+                       <div *ngIf="this.addform.get('marks')?.errors && this.addform.get('marks')?.touched" style="color: red; margin: 0 60px;">Invalid </div>  
+
+                       <div><input type="text" placeholder="Enter Picture ID" formControlName="pictureid"></div>
+                       <div *ngIf="this.addform.get('pictureid')?.errors && this.addform.get('pictureid')?.touched" style="color: red; margin: 0 60px;">Invalid </div>  
+
+                       <div><input type="text" placeholder="Enter parent ID" formControlName="parentid"></div>
+                       <div *ngIf="this.addform.get('parentid')?.errors && this.addform.get('parentid')?.touched" style="color: red; margin: 0 60px;">Invalid </div>  
+
+                       <div><input type="text" placeholder="Active ?" formControlName="active"></div>
+                       <div *ngIf="this.addform.get('active')?.errors && this.addform.get('active')?.touched" style="color: red; margin: 0 60px;">Invalid </div>  
+
+                       <div><input type="text" placeholder=" Enter work Type" formControlName="worktype"></div>
+                       <div *ngIf="this.addform.get('worktype')?.errors && this.addform.get('worktype')?.touched" style="color: red; margin: 0 60px;">Invalid </div>  
+
+                       <div><input type="text" placeholder=" Enter number of customer questions" formControlName="numberofcustomerquestions"></div>
+                       <div *ngIf="this.addform.get('numberofcustomerquestions')?.errors && this.addform.get('numberofcustomerquestions')?.touched" style="color: red; margin: 0 60px;">Invalid </div>  
+
+                       <div><input type="text" placeholder=" Is Admin approvel needed ?" formControlName="isadminapprovalneeded"></div>
+                       <div *ngIf="this.addform.get('isadminapprovalneeded')?.errors && this.addform.get('isadminapprovalneeded')?.touched" style="color: red; margin: 0 60px;">Invalid </div>  
+
+                       <div><input type="text" placeholder=" Suggested Bid Duration In Days" formControlName="suggestedbiddurationindays"></div>
+                       <div *ngIf="this.addform.get('suggestedbiddurationindays')?.errors && this.addform.get('suggestedbiddurationindays')?.touched" style="color: red; margin: 0 60px;">Invalid </div>
+                       
+                       <div><input type="text" placeholder=" Is Attachment Allowed ?" formControlName="isattachmentallowed"></div>
+                       <div *ngIf="this.addform.get('suggestedbiddurationindays')?.errors && this.addform.get('suggestedbiddurationindays')?.touched" style="color: red; margin: 0 60px;">Invalid </div>  
+
+                       <div><input type="text" placeholder=" Currency Code" formControlName="currencycode"></div>
+                       <div *ngIf="this.addform.get('currencycode')?.errors && this.addform.get('currencycode')?.touched" style="color: red; margin: 0 60px;">Invalid </div>  
+
+                       <div><input type="text" placeholder=" Amount" formControlName="amount"></div>
+                       <div *ngIf="this.addform.get('amount')?.errors && this.addform.get('amount')?.touched" style="color: red; margin: 0 60px;">Invalid </div>  
+
+                       <div><input type="text" placeholder=" Credits" formControlName="credits"></div>
+                       <div *ngIf="this.addform.get('credits')?.errors && this.addform.get('credits')?.touched" style="color: red; margin: 0 60px;">Invalid </div>  
+                       
+                       <div><button class="btn btn-primary w-25" (click)="submit()" >Submit</button></div>
+                        </div> 
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col"></div>
+</div>
